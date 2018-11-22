@@ -15,13 +15,11 @@ Including another URLconf
 """
 
 from django.urls import path
-from .views import ListExchangeRatesView, ListAllCurrencyRatesView, \
-    ListCurrencyRateFromGivenDateView, ListAllRatesFromGivenDate
+from .views import ListExchangeRatesView, ListAllCurrencyRatesView, ListCurrencyRateFromGivenDateView
 
 
 urlpatterns = [
     path('exchange-rates/', ListExchangeRatesView.as_view(), name="exchange-rates-all"),
-    path('exchange-rates/<currency>/', ListAllCurrencyRatesView.as_view()),
+    path('exchange-rates/<param>/', ListAllCurrencyRatesView.as_view()),
     path('exchange-rates/<currency>/<date>/', ListCurrencyRateFromGivenDateView.as_view()),
-    path('exchange-rates/<date>/', ListAllRatesFromGivenDate.as_view()),
 ]
